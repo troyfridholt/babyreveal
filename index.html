@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Reveal</title>
+    <!-- Ändra från absolut sökväg till relativ sökväg -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Add confetti script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Floating baby icons -->
+    <div class="floating-babies">
+        <div class="baby-icon">👶</div>
+        <div class="baby-icon">🍼</div>
+        <div class="baby-icon">💗</div> <!-- Pink heart -->
+        <div class="baby-icon">🚼</div>
+        <div class="baby-icon">💙</div> <!-- Blue heart -->
+    </div>
+    
+    <!-- Canvas for confetti -->
+    <canvas id="confetti-canvas" style="position:fixed;z-index:1000;pointer-events:none;top:0;left:0;width:100%;height:100%"></canvas>
+    
+    <div class="container">
+        <!-- Name screen -->
+        <div id="name-screen" class="screen active">
+            <h1>Welcome to our Baby Reveal!</h1>
+            <div class="form-group">
+                <label for="name">Please enter your name:</label>
+                <input type="text" id="name" placeholder="Your name">
+                <button id="submit-name">Continue</button>
+            </div>
+        </div>
+
+        <!-- Gender choice screen -->
+        <div id="gender-screen" class="screen">
+            <h1>What do you think the baby will be?</h1>
+            <div class="buttons">
+                <button id="boy-button" class="gender-button boy">Boy</button>
+                <button id="girl-button" class="gender-button girl">Girl</button>
+            </div>
+        </div>
+
+        <!-- Boy follow-up questions -->
+        <div id="boy-question1" class="screen blue">
+            <h1>Are you sure it's a boy?</h1>
+            <div class="buttons">
+                <button id="boy-yes1" class="yes-button">Yes</button>
+                <button id="boy-no1" class="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="boy-question2" class="screen bluer">
+            <h1>Are you really really sure it's a boy?</h1>
+            <div class="buttons">
+                <button id="boy-yes2" class="yes-button">Yes</button>
+                <button id="boy-no2" class="no-button">No</button>
+            </div>
+        </div>
+
+        <!-- Girl follow-up questions -->
+        <div id="question1" class="screen pink">
+            <h1>Are you sure?</h1>
+            <div class="buttons">
+                <button id="yes1" class="yes-button">Yes</button>
+                <button id="no1" class="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="question2" class="screen pinker">
+            <h1>Are you really really sure it's a girl?</h1>
+            <div class="buttons">
+                <button id="yes2" class="yes-button">Yes</button>
+                <button id="no2" class="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="question3" class="screen pinkest">
+            <h1>Are you sure it's a girl, like really sure? Maybe it's a boy?</h1>
+            <div class="buttons">
+                <button id="yes3" class="yes-button">Yes</button>
+                <button id="no3" class="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="question4" class="screen">
+            <h1>So you think it's a boy?</h1>
+            <div class="buttons">
+                <button id="yes4" class="yes-button">Yes</button>
+                <button id="no4" class="no-button">No</button>
+            </div>
+        </div>
+
+        <div id="confused" class="screen">
+            <h1>Wait, I'm confused, is it a boy or a girl?</h1>
+            <div class="buttons">
+                <button id="boy-button2" class="gender-button boy">Boy</button>
+                <button id="girl-button2" class="gender-button girl">Girl</button>
+            </div>
+        </div>
+
+        <div id="give-up" class="screen pink">
+            <h1>Well, I really can't be bothered anymore. I guess your answer is girl.</h1>
+            <div class="buttons">
+                <button id="final-yes" class="yes-button">Yes</button>
+                <button id="another-yes" class="yes-button">Yes</button>
+            </div>
+        </div>
+
+        <!-- Final reveal -->
+        <div id="final-reveal" class="screen blue">
+            <div id="countdown" class="countdown-timer">3</div>
+            <h1 id="name-display" style="display: none;" class="reveal-content"></h1>
+            <h2 style="display: none;" class="reveal-content">Well, it's a boy!</h2>
+            <div class="celebration reveal-content" style="display: none;">🎉👶💙🎉</div>
+        </div>
+
+        <!-- Direct boy path -->
+        <div id="boy-direct" class="screen blue">
+            <div id="countdown-direct" class="countdown-timer">3</div>
+            <h1 style="display: none;" class="reveal-content-direct">You're right!</h1>
+            <h2 style="display: none;" class="reveal-content-direct">It's a boy!</h2>
+            <div class="celebration reveal-content-direct" style="display: none;">🎉👶💙🎉</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

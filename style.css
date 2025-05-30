@@ -1,0 +1,304 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 300px;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.active {
+    display: flex;
+    opacity: 1;
+}
+
+.form-group {
+    margin: 20px 0;
+    width: 80%;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gender-button {
+    width: 120px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.boy {
+    background-color: #2196F3;
+}
+
+.boy:hover {
+    background-color: #0b7dda;
+}
+
+.girl {
+    background-color: #FF4081;
+}
+
+.girl:hover {
+    background-color: #f50057;
+}
+
+.yes-button {
+    background-color: #4CAF50;
+}
+
+.no-button {
+    background-color: #f44336;
+}
+
+.no-button:hover {
+    background-color: #d32f2f;
+}
+
+.pink {
+    background-color: #FFD6E7;
+}
+
+.pinker {
+    background-color: #FFC0CB;
+}
+
+.pinkest {
+    background-color: #FF69B4;
+}
+
+.blue {
+    background-color: #D6EAFF;
+}
+
+.bluer {
+    background-color: #B3D7FF;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.celebration {
+    font-size: 48px;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+#name-display {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Apply pink backgrounds to container instead of screen for full visibility */
+.pink .container, #question1 .container {
+    background-color: #FFD6E7;
+}
+
+.pinker .container, #question2 .container {
+    background-color: #FFC0CB;
+}
+
+.pinkest .container, #question3 .container {
+    background-color: #FF69B4;
+}
+
+.blue .container, #final-reveal .container, #boy-direct .container {
+    background-color: #D6EAFF;
+}
+
+.bluer .container, #boy-question2 .container {
+    background-color: #B3D7FF;
+}
+
+/* Floating baby icons */
+.floating-babies {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.baby-icon {
+    position: absolute;
+    font-size: 32px;
+    opacity: 0.7;
+    animation: float 15s linear infinite;
+}
+
+.baby-icon:nth-child(1) {
+    top: 10%;
+    animation-duration: 17s;
+    animation-delay: 0s;
+}
+
+.baby-icon:nth-child(2) {
+    top: 30%;
+    animation-duration: 25s;
+    animation-delay: 2s;
+}
+
+.baby-icon:nth-child(3) {
+    top: 50%;
+    animation-duration: 20s;
+    animation-delay: 5s;
+}
+
+.baby-icon:nth-child(4) {
+    top: 70%;
+    animation-duration: 22s;
+    animation-delay: 7s;
+}
+
+.baby-icon:nth-child(5) {
+    top: 90%;
+    animation-duration: 18s;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    from {
+        left: -5%;
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(20px) rotate(-10deg);
+    }
+    to {
+        left: 105%;
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Countdown timer */
+.countdown-timer {
+    font-size: 100px;
+    font-weight: bold;
+    color: #2196F3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 1s infinite alternate;
+    margin: 0 auto;
+}
+
+/* Color alternating countdown for girl path */
+.countdown-alternate {
+    animation: color-alternate 1s infinite alternate, pulse 1s infinite alternate;
+}
+
+@keyframes color-alternate {
+    0% {
+        color: #2196F3; /* Blue */
+        text-shadow: 2px 2px 4px rgba(33, 150, 243, 0.3);
+    }
+    100% {
+        color: #FF4081; /* Pink */
+        text-shadow: 2px 2px 4px rgba(255, 64, 129, 0.3);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Color alternating background for the reveal screen */
+.bg-alternate {
+    animation: bg-color-alternate 1.2s infinite alternate;
+}
+
+@keyframes bg-color-alternate {
+    0% {
+        background-color: #D6EAFF; /* Blue background */
+    }
+    100% {
+        background-color: #FFD6E7; /* Pink background */
+    }
+}
+
+/* Additionally, we need to modify the container styles when bg-alternate is active */
+.bg-alternate .container {
+    background: transparent !important; /* Make container transparent to see background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
